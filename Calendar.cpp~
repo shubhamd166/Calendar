@@ -317,4 +317,24 @@ void printCalendar(int year)
     } 
   
     return; 
+    
+    
+    
+Image loadImage(const char *filename)
+{
+    png::image<png::rgb_pixel> image(filename);
+    Image imageMatrix(3, Matrix(image.get_height(), Array(image.get_width())));
+
+    int h,w;
+    for (h=0 ; h<image.get_height() ; h++) {
+        for (w=0 ; w<image.get_width() ; w++) {
+            imageMatrix[0][h][w] = image[h][w].red;
+            imageMatrix[1][h][w] = image[h][w].green;
+            imageMatrix[2][h][w] = image[h][w].blue;
+        }
+    }
+
+    return imageMatrix;
+}
+
 } 
