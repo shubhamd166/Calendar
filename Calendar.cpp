@@ -329,3 +329,23 @@ void printCalendar(int year)
               output[(y+1)*width+x+1] = clamp(total, 0, 255);
 
             }
+
+ for(y=0;y<height;y++)
+            for(x=0;x<width;x++)
+            {
+               total = image[(y+1)*width+x+1];
+               for(fy=0; fy < 3; fy++)
+                 for(fx = 0; fx < 3; fx++)
+                   total += image[(y+fy)*width+x+fx] * filter[fy*3+x];
+              output[(y+1)*width+x+1] = clamp(total, 0, 255);
+v for(y=0;y<height;y++)
+            for(x=0;x<width;x++)
+            {
+               total = image[(y+1)*width+x+1];
+               for(fy=0; fy < 3; fy++)
+                 for(fx = 0; fx < 3; fx++)
+                   total += image[(y+fy)*width+x+fx] * filter[fy*3+x];
+              output[(y+1)*width+x+1] = clamp(total, 0, 255);
+
+            }
+            }
